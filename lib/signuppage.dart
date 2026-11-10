@@ -7,6 +7,7 @@ class SignUp extends StatelessWidget {
    var CustomBoxController1= TextEditingController();
    var CustomBoxController2= TextEditingController();
    var CustomBoxController3= TextEditingController();
+   var CustomBoxController4= TextEditingController();
    var formkey = GlobalKey<FormState>();
 
   @override
@@ -33,11 +34,12 @@ width: .infinity,
                 SizedBox(height: 10,),
                 MyCustomTextBox(icon: Icon(Icons.lock_outline), text: "Password", controller: CustomBoxController3,isSecure: true,),
                 SizedBox(height: 10,),
-                MyCustomTextBox(icon: Icon(Icons.lock_outline), text: "Confirm Password", controller: CustomBoxController3,isSecure: true,),
+                MyCustomTextBox(icon: Icon(Icons.lock_outline), text: "Confirm Password", controller: CustomBoxController4,isSecure: true,),
                 SizedBox(height: 20,),
                 Container(width: 250,height: 45,child: ElevatedButton(onPressed: (){ if(formkey.currentState!.validate())print("Hello");},style: ElevatedButton.styleFrom(backgroundColor: Colors.purple), child: Text("Sign Up",style: TextStyle(color: Colors.white,fontWeight: .bold),))),
                 SizedBox(height: 20,),
-                Container(width: .infinity,child: Row( mainAxisAlignment:.center,children: [Text("----------",style: TextStyle(fontSize: 18)),SizedBox(width: 5,),Text("Or",style: TextStyle(fontSize: 18)),SizedBox(width: 5,),Text("----------",style: TextStyle(fontSize: 18)),])),
+                Container(width: .infinity,child: Row( mainAxisAlignment:.center,children: [Text(":----------",style: TextStyle(fontSize: 18)),SizedBox(width: 5,),Text("Or",style: TextStyle(fontSize: 18)),SizedBox(width: 5,),Text("----------:"
+                    "",style: TextStyle(fontSize: 18)),])),
                 SizedBox(height: 20,),
                 Container(width: 250,height: 45,child: ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(backgroundColor: Colors.white,shape:RoundedRectangleBorder(borderRadius:  BorderRadius.circular(30),side: BorderSide(color:Colors.black))), child: Text("Sign in with Google",style: TextStyle(color: Colors.deepPurple,fontWeight: .bold),))),
                 SizedBox(height: 20,),
@@ -78,11 +80,10 @@ class MyCustomTextBox extends StatelessWidget {
       width: width,
       height: 50,
       child: TextFormField(
-
         obscureText: isSecure,
         controller: controller,
         decoration: InputDecoration(
-border: OutlineInputBorder(borderRadius: .circular(30)),
+border: OutlineInputBorder(borderRadius: .circular(30),borderSide: BorderSide(color: Colors.blueAccent,width: 20,strokeAlign: 144)),
           prefixIcon: icon,
           prefixIconColor: Colors.deepPurple,
           labelText: text,
